@@ -1,0 +1,24 @@
+--- a/iwinfo_qcawifi.c
++++ b/iwinfo_qcawifi.c
+@@ -1046,19 +1046,8 @@ int qcawifi_get_hwmodelist(const char *i
+ int qcawifi_get_mbssid_support(const char *ifname, int *buf)
+ {
+ 	/* Test whether we can create another interface */
+-	char *nif = qcawifi_ifadd(ifname);
+-
+-	if( nif )
+-	{
+-		*buf = iwinfo_ifup(nif);
+-
+-		iwinfo_ifdown(nif);
+-		qcawifi_ifdel(nif);
+-
+-		return 0;
+-	}
+-
+-	return -1;
++	*buf = 1;
++	return 0;
+ }
+ 
+ int qcawifi_get_hardware_id(const char *ifname, char *buf)

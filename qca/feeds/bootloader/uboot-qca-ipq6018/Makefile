@@ -195,6 +195,7 @@ define Package/uboot-2016-ipq6018/install
 	$(CP) $(PKG_BUILD_DIR)/u-boot $(BIN_DIR)/openwrt-ipq6018-u-boot-stripped.elf
 	$(STRIP) $(BIN_DIR)/openwrt-ipq6018-u-boot-stripped.elf
 	$(CP) $(PKG_BUILD_DIR)/u-boot.bin $(BIN_DIR)/openwrt-ipq6018-u-boot.img
+	python $(TOPDIR)/qca/src/u-boot-2016/scripts_mbn/elftombn.py -f $(BIN_DIR)/openwrt-ipq6018-u-boot.elf -o $(BIN_DIR)/openwrt-ipq6018-u-boot.mbn -v 6
 endef
 
 define Package/fwupgrade-tools/install

@@ -13,12 +13,10 @@ PKG_RELEASE:=1
 PKG_LICENSE:=Custom
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
-PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_URL:=https://github.com/HewlettPackard/netperf.git
-PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=f46c031
+PKG_SOURCE_URL:=ftp://ftp.netperf.org/netperf/
+PKG_HASH:=842af17655835c8be7203808c3393e6cb327a8067f3ed1f1053eb78b4e40375a
 
-#PKG_MD5SUM:=ad1c5342d61f297c417a93133aeba65a
+PKG_CPE_ID:=cpe:/a:netperf:netperf
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -29,6 +27,8 @@ define Package/netperf
   URL:=http://www.netperf.org/
   MAINTAINER:=Toke Høiland-Jørgensen <toke@toke.dk>
 endef
+
+TARGET_CFLAGS+=-std=gnu89
 
 CONFIGURE_ARGS += --enable-demo
 
